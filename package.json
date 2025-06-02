@@ -32,5 +32,13 @@
       "en": "Forward messages"
     },
     "browser": true
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.5"
+  },
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --target=es2022 --format=esm --outfile=lib/index.js --external:koishi",
+    "build:types": "tsc",
+    "build:all": "npm run build && npm run build:types"
   }
 }

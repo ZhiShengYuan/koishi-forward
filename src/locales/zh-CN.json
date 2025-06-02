@@ -1,0 +1,69 @@
+[
+  {
+    "$description": "常量设置",
+    "constants": {
+      "$description": "常量列表 (「对应规则」中的参数)",
+      "$value": {
+        "$description": "常量名称 (可随意填写)",
+        "$value": [
+          {
+            "type": {
+              "$description": "常量类型",
+              "$value": [
+                "仅适用「来源」",
+                "仅适用「目标」",
+                "适用「来源」或「目标」(通常用以双向转发)"
+              ]
+            }
+          },
+          [
+            {
+              "name": "来源代称 (可随意填写)",
+              "blockingWords": {
+                "$description": "屏蔽词 (消息包含屏蔽词时不转发, 支持正则表达式)",
+                "$value": "正则表达式 (无需斜杠包围)"
+              },
+              "platform": "平台名",
+              "channelId": "频道 ID",
+              "selfId": "自身 ID",
+              "onlyQuote": "是否仅转发引用机器人自身的消息"
+            },
+            {
+              "selfId": "自身 ID",
+              "disabled": "是否禁用",
+              "platform": "平台名",
+              "channelId": "频道 ID",
+              "simulateOriginal": "模拟原始作者 (仅在 discord 平台生效)"
+            },
+            {
+              "name": "来源代称 (可随意填写)",
+              "selfId": "自身 ID",
+              "blockingWords": {
+                "$description": "屏蔽词 (消息包含屏蔽词时不转发, 支持正则表达式)"
+              },
+              "disabled": "是否禁用 (仅在「目标」生效)",
+              "platform": "平台名",
+              "channelId": "频道 ID",
+              "simulateOriginal": "模拟原始作者 (仅在 discord 平台生效, 仅在「目标」生效)",
+              "onlyQuote": "是否仅转发引用机器人自身的消息"
+            }
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "$description": "转发规则设置",
+    "rules": {
+      "$description": "对应规则",
+      "$value": {
+        "source": "来源 (此处填入「常量名称」)",
+        "targets": "目标 (此处填入「常量名称」)"
+      }
+    },
+    "delay": {
+      "$description": "发送间隔 (默认 200 毫秒)",
+      "$value": "平台名"
+    }
+  }
+]

@@ -1,4 +1,4 @@
-import { Schema, Dict, Time } from 'koishi'
+import { Schema, Dict } from 'koishi'
 
 interface Source {
   channelId: string
@@ -93,8 +93,8 @@ export const Config: Schema<Config> = Schema.intersect([
       source: Schema.string().required(),
       targets: Schema.array(String).role('table')
     })),
-    delay: Schema.dict(Schema.natural().role('ms').default(0.2 * Time.second))
+    delay: Schema.dict(Schema.natural().role('ms').default(200))
   })
 ]).i18n({
-  'zh-CN': require('./locales/zh-CN')
+  'zh-CN': require('./locales/zh-CN.json') // Add .yml extension
 })
